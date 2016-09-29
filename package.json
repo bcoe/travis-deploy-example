@@ -26,5 +26,11 @@
     "mocha": "^3.1.0",
     "nyc": "^8.3.0",
     "standard-version": "^2.4.0"
-  }
+  },
+  "dependencies": {
+    "@bcoe/super-secret-dependency": "^1.0.0"
+  },
+  "files": [
+    "index.js"
+  ]
 }
