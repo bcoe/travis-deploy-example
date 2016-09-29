@@ -1,0 +1,30 @@
+{
+  "name": "travis-deploy-example",
+  "version": "1.0.0",
+  "description": "example of using Travis' deploy feature to publish to npm.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcoe/travis-deploy-example.git"
+  },
+  "keywords": [
+    "deploy",
+    "travis"
+  ],
+  "author": "Ben Coe <ben@npmjs.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bcoe/travis-deploy-example/issues"
+  },
+  "homepage": "https://github.com/bcoe/travis-deploy-example#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "makeshift": "^1.0.0",
+    "mocha": "^3.1.0",
+    "nyc": "^8.3.0",
+    "standard-version": "^2.4.0"
+  }
+}
