@@ -6,7 +6,7 @@ Example of using Travis CI to automatically publish your packages to npm, using:
 * the [makeshift](https://github.com/nexdrew/makeshift) package, for generating an `.npmrc`
   file with your credentials in it.
 * and the [standard-version](https://github.com/conventional-changelog/standard-version) package,
-  for automating [semver](http://semver.org/) and CHANGELOG generation.
+  for automating [semver](http://semver.org/) bumps and CHANGELOG generation.
 
 ### Setting `NPM_TOKEN` environment variable
 
