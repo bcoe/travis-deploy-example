@@ -30,3 +30,61 @@ before_install:
 ```
 
 This allows us to install the private `@bcoe/super-secret-dependency` dependency.
+
+## Automatically Publishing From Travis CI
+
+The `.travis.yml` included in this repository automatically publishes to npm, if
+tests pass for[git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) that you push to GitHub. Here
+are the pertinent lines in the `.travis.yml` to support this:
+
+```yaml
+deploy:
+  provider: npm
+  email: ben@npmjs.com
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+```
+
+That's all there is to it! note that it references the same `NPM_TOKEN` environment variable that
+is used to install `@bcoe/super-secret-dependency`.
+
+## Commit Format
+
+Deciding on what version to bump your package is a hassle; _did I add a feature since I
+last released, was it just patches?_ This demo uses [standard-version](https://github.com/conventional-changelog/standard-version) to solve this problem.
+
+When making commits, simply follow these commit standards:
+
+_patches:_
+
+```sh
+git commit -a -m "fix: fixed a bug in our parser"
+```
+
+_features:_
+
+```sh
+git commit -a -m "feat: we now have a parser \o/"
+```
+
+_breaking changes:_
+
+```sh
+git commit -a -m "feat: introduces a new parsing library
+BREAKING CHANGE: new library does not support foo-construct"
+```
+
+_other changes:_
+
+You decide, e.g., docs, chore, etc.
+
+## Kicking off a Deploy
+
+When you're ready to have Travis CI deploy a new release of your package to
+npm for you:
+
+* `npm run release`, this will look at your commit history, and use [standard-version](https://github.com/conventional-changelog/standard-version)
+  to bump your version #, create a tag, and update your CHANGELOG.
+* `git push --follow-tags origin master`, this will push the tag up to GitHub
+  and kick off a build on Travis CI which will publish your module once it succeeds.
