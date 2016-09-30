@@ -22,7 +22,7 @@ Once you fetch your token, set this as an environment variable in Travis CI call
 
 `.npmrc` is npm's configuration file, amongst other things: it contains your auth information, and tells the npm
 CLI what registry to install from. The following lines in our `.travis.yml` generate
-a `.npmrc` [mapping the @bcoe scope](http://localhost:4000/cli/configuration.html#option-2-using-enterprise-for-private-packages-only) to the `registry.npmjs.org` registry:
+an `.npmrc` [mapping the @bcoe scope](http://localhost:4000/cli/configuration.html#option-2-using-enterprise-for-private-packages-only) to the `registry.npmjs.org` registry:
 
 ```yaml
 before_install:
@@ -34,7 +34,7 @@ This allows us to install the private `@bcoe/super-secret-dependency` dependency
 ## Automatically Publishing From Travis CI
 
 The `.travis.yml` included in this repository automatically publishes to npm, if
-tests pass for[git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) that you push to GitHub. Here
+tests pass for a [git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) that you push to GitHub. Here
 are the pertinent lines in the `.travis.yml` to support this:
 
 ```yaml
@@ -79,12 +79,36 @@ _other changes:_
 
 You decide, e.g., docs, chore, etc.
 
-## Kicking off a Deploy
+## Publishing Your Package From Travis CI
 
-When you're ready to have Travis CI deploy a new release of your package to
-npm for you:
+When you're ready to have Travis CI publish a new version of your package to npm:
 
 * `npm run release`, this will look at your commit history, and use [standard-version](https://github.com/conventional-changelog/standard-version)
-  to bump your version #, create a tag, and update your CHANGELOG.
+  to: bump the version #, create a tag, and update your CHANGELOG.
 * `git push --follow-tags origin master`, this will push the tag up to GitHub
   and kick off a build on Travis CI which will publish your module once it succeeds.
+
+That's all there is to it, it's _literally_ magic.
+
+## Using npm Enterprise
+
+To configure Travis CI's deploys to use your private [npm Enterprise](https://www.npmjs.com/enterprise)
+server, only two configuration changes need to be made:
+
+1. add a `publishConfig.registry` to your `package.json` that references your
+   private registry:
+
+  ```
+  {
+    "publishConfig": {
+      "registry": "https://npmo-demo-registry.npmjs.com"
+    }
+  }
+  ```
+
+2. update the `makeshift` line in your `.travis.yml` to point to the new registry:
+
+  ```yaml
+  before_install:
+    - npm i -g makeshift && makeshift -s @bcoe -r https://npmo-demo-registry.npmjs.com
+  ```
