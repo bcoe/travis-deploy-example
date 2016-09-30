@@ -22,7 +22,7 @@ Once you fetch your token, set this as an environment variable in Travis CI call
 
 `.npmrc` is npm's configuration file, amongst other things: it contains your auth information, and tells the npm
 CLI what registry to install from. The following lines in our `.travis.yml` generate
-an `.npmrc` [mapping the @bcoe scope](http://localhost:4000/cli/configuration.html#option-2-using-enterprise-for-private-packages-only) to the `registry.npmjs.org` registry:
+an `.npmrc` [mapping the @bcoe scope](http://npme.npmjs.com/docs/cli/configuration.html#option-2-using-enterprise-for-private-packages-only) to the `registry.npmjs.org` registry:
 
 ```yaml
 before_install:
@@ -34,7 +34,7 @@ This allows us to install the private `@bcoe/super-secret-dependency` dependency
 ## Automatically Publishing From Travis CI
 
 The `.travis.yml` included in this repository automatically publishes to npm, if
-tests pass for a [git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) that you push to GitHub. Here
+tests pass for any [git tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) that you push to GitHub. Here
 are the pertinent lines in the `.travis.yml` to support this:
 
 ```yaml
