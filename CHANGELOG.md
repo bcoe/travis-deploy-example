@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/bcoe/travis-deploy-example/compare/v1.2.0...v1.2.1) (2016-09-30)
+
+
+### Bug Fixes
+
+* touched up some documentation ([8d40fdc](https://github.com/bcoe/travis-deploy-example/commit/8d40fdc))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/bcoe/travis-deploy-example/compare/v1.1.0...v1.2.0) (2016-09-30)
 
