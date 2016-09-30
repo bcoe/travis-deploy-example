@@ -4,7 +4,8 @@
   "description": "example of using Travis' deploy feature to publish to npm.",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha test.js"
+    "test": "nyc mocha test.js",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
