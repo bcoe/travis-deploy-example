@@ -12,7 +12,7 @@ Example of using Travis CI to automatically publish your packages to npm, using:
 
 To be able to install private packages and to publish on your behalf, Travis CI
 needs your npm deploy token. After logging into npm, [this token can be found
-in your `.npmrc` file](https://npme.npmjs.com/docs/workflow/travis.html#option-1-fetch-your-npm-enterprise-secret-token).
+in your `~/.npmrc` file](https://npme.npmjs.com/docs/workflow/travis.html#option-1-fetch-your-npm-enterprise-secret-token).
 
 Once you fetch your token, set this as an environment variable in Travis CI called `NPM_TOKEN`:
 
@@ -31,7 +31,7 @@ before_install:
 
 This allows us to install the private `@bcoe/super-secret-dependency` dependency.
 
-## Automatically Publishing From Travis CI
+## Configuration Travis CI for Deployment
 
 The `.travis.yml` included in this repository automatically publishes to npm, if
 tests pass for any [git tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) that you push to GitHub. Here
@@ -93,12 +93,12 @@ That's all there is to it, it's _literally_ magic.
 ## Using npm Enterprise
 
 To configure Travis CI's deploys to use your private [npm Enterprise](https://www.npmjs.com/enterprise)
-server, only two configuration changes need to be made:
+server only two configuration changes need to be made:
 
 1. add a `publishConfig.registry` to your `package.json` that references your
    private registry:
 
-  ```
+  ```json
   {
     "publishConfig": {
       "registry": "https://npmo-demo-registry.npmjs.com"
