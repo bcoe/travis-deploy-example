@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/bcoe/travis-deploy-example/compare/v1.2.2...v1.2.3) (2016-09-30)
+
+
+### Bug Fixes
+
+* switch us back to npmjs.org ([3c808f6](https://github.com/bcoe/travis-deploy-example/commit/3c808f6))
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/bcoe/travis-deploy-example/compare/v1.2.1...v1.2.2) (2016-09-30)
 
