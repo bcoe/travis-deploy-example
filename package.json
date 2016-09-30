@@ -35,6 +35,6 @@
     "index.js"
   ],
   "publishConfig": {
-    "registry": "https://npmo-demo-registry.npmjs.com"
+    "registry": "https://registry.npmjs.org"
   }
 }
