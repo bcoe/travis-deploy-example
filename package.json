@@ -1,6 +1,6 @@
 {
   "name": "travis-deploy-example",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "example of using Travis' deploy feature to publish to npm.",
   "main": "index.js",
   "scripts": {
